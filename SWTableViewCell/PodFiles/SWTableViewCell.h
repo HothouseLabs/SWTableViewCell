@@ -13,6 +13,7 @@
 #import "SWUtilityButtonTapGestureRecognizer.h"
 #import "NSMutableArray+SWUtilityButtons.h"
 #import "SWConstants.h"
+#import "SWTapGestureRecognizer.h"
 
 @class SWTableViewCell;
 
@@ -34,7 +35,7 @@ typedef enum {
 @end
 
 @interface SWTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) SWTapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) NSArray *leftUtilityButtons;
 @property (nonatomic, strong) NSArray *rightUtilityButtons;
 @property (nonatomic, weak) id <SWTableViewCellDelegate> delegate;
