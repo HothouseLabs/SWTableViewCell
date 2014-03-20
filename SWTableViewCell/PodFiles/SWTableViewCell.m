@@ -99,7 +99,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     SWTapGestureRecognizer *tapGestureRecognizer = [[SWTapGestureRecognizer alloc] initWithTarget:self
                                                                                            action:@selector(scrollViewUp:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
-    [cellScrollView addGestureRecognizer:tapGestureRecognizer];
+    [self.contentView addGestureRecognizer:tapGestureRecognizer];
     
     self.tapGestureRecognizer = tapGestureRecognizer;
     
@@ -133,13 +133,16 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
 {
     _containingTableView = containingTableView;
     // Check if the UITableView will display Indices on the right. If that's the case, add a padding
-    if([self.containingTableView.dataSource respondsToSelector:@selector(sectionIndexTitlesForTableView:)])
+    if([_containingTableView.dataSource respondsToSelector:@selector(sectionIndexTitlesForTableView:)])
     {
-        NSArray *indices = [self.containingTableView.dataSource sectionIndexTitlesForTableView:self.containingTableView];
+        NSArray *indices = [_containingTableView.dataSource sectionIndexTitlesForTableView:_containingTableView];
         additionalRightPadding = indices == nil ? 0 : kSectionIndexWidth;
     }
-    self.containingTableView.directionalLockEnabled = YES;
-    [self.tapGestureRecognizer requireGestureRecognizerToFail:self.containingTableView.panGestureRecognizer];
+    _containingTableView.directionalLockEnabled = YES;
+    
+    self.height = _containingTableView.rowHeight;
+    
+    [self.tapGestureRecognizer requireGestureRecognizerToFail:_containingTableView.panGestureRecognizer];
 }
 
 - (void)layoutSubviews
