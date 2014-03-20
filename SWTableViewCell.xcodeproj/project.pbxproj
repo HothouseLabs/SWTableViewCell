@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2765D71E18DB40D500BCC88A /* SWTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2765D71D18DB40D500BCC88A /* SWTapGestureRecognizer.m */; };
 		810308911846579B00C378F0 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 810308861846579B00C378F0 /* NSMutableArray+SWUtilityButtons.m */; };
 		810308921846579B00C378F0 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810308881846579B00C378F0 /* SWCellScrollView.m */; };
 		810308931846579B00C378F0 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103088A1846579B00C378F0 /* SWLongPressGestureRecognizer.m */; };
@@ -34,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2765D71C18DB40D500BCC88A /* SWTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTapGestureRecognizer.h; sourceTree = "<group>"; };
+		2765D71D18DB40D500BCC88A /* SWTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTapGestureRecognizer.m; sourceTree = "<group>"; };
 		810308851846579B00C378F0 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		810308861846579B00C378F0 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
 		810308871846579B00C378F0 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 				8103088A1846579B00C378F0 /* SWLongPressGestureRecognizer.m */,
 				8103088B1846579B00C378F0 /* SWTableViewCell.h */,
 				8103088C1846579B00C378F0 /* SWTableViewCell.m */,
+				2765D71C18DB40D500BCC88A /* SWTapGestureRecognizer.h */,
+				2765D71D18DB40D500BCC88A /* SWTapGestureRecognizer.m */,
 				8103088D1846579B00C378F0 /* SWUtilityButtonTapGestureRecognizer.h */,
 				8103088E1846579B00C378F0 /* SWUtilityButtonTapGestureRecognizer.m */,
 				8103088F1846579B00C378F0 /* SWUtilityButtonView.h */,
@@ -252,6 +257,7 @@
 				810308A5184D688D00C378F0 /* UMTableViewCell.m in Sources */,
 				810308941846579B00C378F0 /* SWTableViewCell.m in Sources */,
 				AF34B78517DEE2B800BD9082 /* ViewController.m in Sources */,
+				2765D71E18DB40D500BCC88A /* SWTapGestureRecognizer.m in Sources */,
 				810308951846579B00C378F0 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				810308931846579B00C378F0 /* SWLongPressGestureRecognizer.m in Sources */,
 			);
