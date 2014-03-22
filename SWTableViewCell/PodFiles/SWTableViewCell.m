@@ -129,6 +129,12 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     self.highlighted = NO;
 }
 
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    _cellState = kCellStateCenter;
+}
+
 - (void)setContainingTableView:(UITableView *)containingTableView
 {
     _containingTableView = containingTableView;
@@ -151,12 +157,14 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     
     self.cellScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.height);
     self.cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], self.height);
-    self.cellScrollView.contentOffset = CGPointMake([self leftUtilityButtonsWidth], 0);
     self.scrollViewButtonViewLeft.frame = CGRectMake([self leftUtilityButtonsWidth], 0, 0, self.height);
     self.scrollViewButtonViewLeft.layer.masksToBounds = YES;
     self.scrollViewButtonViewRight.frame = CGRectMake(CGRectGetWidth(self.bounds), 0, 0, self.height);
     self.scrollViewButtonViewRight.layer.masksToBounds = YES;
     self.scrollViewContentView.frame = CGRectMake([self leftUtilityButtonsWidth], 0, CGRectGetWidth(self.bounds), self.height);
+    
+    [self setCellContentOffset];
+    
     self.cellScrollView.scrollEnabled = YES;
     self.tapGestureRecognizer.enabled = YES;
 }
@@ -623,6 +631,18 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
         _cellState = kCellStateLeft;
     else if ([self.cellScrollView contentOffset].x == [self utilityButtonsPadding])
         _cellState = kCellStateRight;
+}
+
+- (void)setCellContentOffset
+{
+    if (_cellState == kCellStateCenter) {
+        self.cellScrollView.contentOffset = CGPointMake([self leftUtilityButtonsWidth], 0);
+    } else if (_cellState == kCellStateLeft) {
+        self.cellScrollView.contentOffset = CGPointZero;
+        self.scrollViewButtonViewLeft.frame = CGRectMake(0.0f, 0.0f, [self leftUtilityButtonsWidth], self.height);
+    } else if (_cellState == kCellStateRight) {
+        self.cellScrollView.contentOffset = CGPointMake([self utilityButtonsPadding], 0);
+    }
 }
 
 @end

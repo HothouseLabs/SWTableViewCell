@@ -48,5 +48,4 @@ typedef enum {
 - (void)setBackgroundColor:(UIColor *)backgroundColor;
 - (void)hideUtilityButtonsAnimated:(BOOL)animated;
 - (void)setAppearanceWithBlock:(void (^) ())appearanceBlock force:(BOOL)force;
-
 @end
